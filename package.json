@@ -1,0 +1,23 @@
+{
+  "name": "comp1111-saxnotes",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/thevans-1/comp1111-saxnotes#readme",
+  "bugs": {
+    "url": "https://github.com/thevans-1/comp1111-saxnotes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thevans-1/comp1111-saxnotes.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
