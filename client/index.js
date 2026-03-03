@@ -8,29 +8,49 @@ function displayPieces(pieces) {
                     <h3>${piece.title}</h3>
                     <div class="button_group">
                         <button onclick="getPieceDetails(${piece.id})">Piece Details</button> 
-                        <button>Comments</button>
+                        <button onclick="getComments(${piece.id})">Comments</button>
                         <button>Add Comment</button>
                     </div>
                  </div>
                  <div class="piece_details" id="details-${piece.id}"></div>
+                 <div id="comments-${piece.id}"</div>
             </div>`
         displayList.innerHTML += pieceDisplayHTML
     }
 }
 
 function displayPieceDetails(piece) {
-    const detailsDivHTML = document.getElementById(`details-${piece.id}`)
-    displayDetailsHMLT = `
+    const detailsDiv = document.getElementById(`details-${piece.id}`)
+    displayDetails = `
       <p>Composer: ${piece.composer}</p>
       <p>Difficulty: ${piece.difficulty}</p>
-      <p>Type: ${piece.type}</p>
+      <p>Type: ${piece.sax_type}</p>
       <p>Style: ${piece.style}</p>`
-    detailsDivHTML.innerHTML = displayDetailsHMLT
+    detailsDiv.innerHTML = displayDetails
 }
 
-// Function that displays the pieces details
+function displayComments(comments) {
+    const commentsDiv = document.getElementById(`comments-${comments[0].piece_id}`) // all commetns returned have the same piece ID so it doesnt matter
+    commentsDiv.innerHTML = ""
+    let commentsList = `
+        <div class="comments_section">
+            <h3>Comments</h3>
+            <ul class="comments_list">
+        `
+    for (let comment of comments) {
+        let commentListItem = `
+        <li>
+          <p>${comment.content}</p>
+          <button>Comment Details</button>
+        </li>`
+        commentsList += commentListItem
+    }
+    commentsList += `
+            </ul>
+        </div>`
+    commentsDiv.innerHTML = commentsList    
+}
 
-// Function that displays commetns
 
 // Function that displays comment detials
 
@@ -45,13 +65,33 @@ window.addEventListener('DOMContentLoaded', async function (event) {
     }
 });
 
-
 async function getPieceDetails(id) {
+    const detailsDiv = document.getElementById(`details-${id}`)
+    if (detailsDiv.innerHTML !== "") {
+        detailsDiv.innerHTML = "";
+        return;
+    }
     try {
         let response = await fetch(`http://127.0.0.1:8090/pieces/${id}`);
         let piece = await response.json();
         console.log(piece);
         displayPieceDetails(piece)
+    } catch (e) {
+        alert(e);
+    }
+}
+
+async function getComments(id) {
+    const commentsDiv = document.getElementById(`comments-${id}`);
+    if (commentsDiv.innerHTML !== "") {
+        commentsDiv.innerHTML = "";
+        return;
+    }
+    try {
+        let responce = await fetch(`http://127.0.0.1:8090/pieces/${id}/comments`)
+        let comments = await responce.json();
+        console.log(comments)
+        displayComments(comments)
     } catch (e) {
         alert(e);
     }
@@ -73,14 +113,15 @@ async function getPieceDetails(id) {
 
 
 
-/*<div class="piece_info">
-      <h3>Autumn Leaves</h3>
-      <p>Composer: Joseph Kosma</p>
-      <p>Difficulty: Intermediate</p>
-      <p>Type: Alto Sax</p>
-      <p>Style: Jazz</p>
-    </div>
 
+
+
+
+
+
+
+
+/*
     <div class="comments_section">
       <h3>Comments</h3>
       <ul class="comments_list">

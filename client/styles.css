@@ -124,11 +124,23 @@ body {
   gap: 1rem;
 }
 
+.comments_list button {
+  margin: 1rem;
+  background-color: #4a4a4a;
+  padding: 0.4rem 1rem;
+  border-radius: 1.5rem;
+  color: #ded724;
+  position:static
+}
+
 .comments_list li {
   background-color: #3a3a3a; 
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .comments_list li p {
