@@ -66,19 +66,47 @@ body {
   font-size: 0.95rem;
 }
 
-#piece_list {
+/*#piece_list {
   margin: 2rem;
   background-color: #4a4a4a;
   padding: 2rem;
   border-radius: 1.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25);
   color: #dcd6c9;
+}*/
+
+.piece_info {
+  margin: 2rem;
+  background-color: #4a4a4a;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25);
+  color: #dcd6c9;
+}
+
+.piece_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button_group {
+  display: flex;
+  gap: 1rem;
 }
 
 .piece_info h3 {
   font-size: 2rem;
   font-weight: 700;
   color: #ded724;
+}
+
+.piece_info button {
+  margin: 1rem;
+  background-color: #ceab0f;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  color: #040403;
 }
 
 .piece_info p {
