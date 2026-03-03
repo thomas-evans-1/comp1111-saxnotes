@@ -1,5 +1,4 @@
 function displayPieces(pieces) {
-    console.log(pieces)
     let displayList = document.getElementById('piece_list')
     displayList.innerHTML = ""
     for (let piece of JSON.parse(pieces)) {
@@ -8,14 +7,25 @@ function displayPieces(pieces) {
                 <div class="piece_header">
                     <h3>${piece.title}</h3>
                     <div class="button_group">
-                        <button>Piece Details</button>
+                        <button onclick="getPieceDetails(${piece.id})">Piece Details</button> 
                         <button>Comments</button>
                         <button>Add Comment</button>
                     </div>
                  </div>
+                 <div class="piece_details" id="details-${piece.id}"></div>
             </div>`
         displayList.innerHTML += pieceDisplayHTML
     }
+}
+
+function displayPieceDetails(piece) {
+    const detailsDivHTML = document.getElementById(`details-${piece.id}`)
+    displayDetailsHMLT = `
+      <p>Composer: ${piece.composer}</p>
+      <p>Difficulty: ${piece.difficulty}</p>
+      <p>Type: ${piece.type}</p>
+      <p>Style: ${piece.style}</p>`
+    detailsDivHTML.innerHTML = displayDetailsHMLT
 }
 
 // Function that displays the pieces details
@@ -34,6 +44,33 @@ window.addEventListener('DOMContentLoaded', async function (event) {
         alert(e);
     }
 });
+
+
+async function getPieceDetails(id) {
+    try {
+        let response = await fetch(`http://127.0.0.1:8090/pieces/${id}`);
+        let piece = await response.json();
+        console.log(piece);
+        displayPieceDetails(piece)
+    } catch (e) {
+        alert(e);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*<div class="piece_info">
