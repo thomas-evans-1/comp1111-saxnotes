@@ -1,14 +1,11 @@
 const express = require('express') // Imports express module
 const app = express() // Create an express app
 
-// Read data.json data
-const data = require('./data.json');
 
-// Middleware
-app.use(express.static('client'));
-
-
+const data = require('./data.json'); // Read data.json data
+app.use(express.static('client')); // Middleware
 app.use(express.json());
+
 
 app.get('/pieces', function (req, resp) {
     console.log("returns all sax pieces")

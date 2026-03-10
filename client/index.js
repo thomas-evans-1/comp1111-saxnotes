@@ -40,19 +40,25 @@ function displayComments(comments) {
     for (let comment of comments) {
         let commentListItem = `
         <li>
-          <p>${comment.content}</p>
-          <button>Comment Details</button>
+            <div class="comment_text">
+                <p>${comment.content}</p>
+                <div id="commentDetails-${comment.id}"></div>
+            </div>
+            <button onclick="getCommentDetails(${comment.piece_id}, ${comment.id})">Comment Details</button>
         </li>`
         commentsList += commentListItem
     }
     commentsList += `
             </ul>
         </div>`
-    commentsDiv.innerHTML = commentsList    
+    commentsDiv.innerHTML = commentsList
 }
 
-
-// Function that displays comment detials
+function displayCommentDetails(comment) {
+    console.log(comment)
+    const commentDetailsDiv = document.getElementById(`commentDetails-${comment.id}`)
+    commentDetailsDiv.innerHTML = `<p><strong>${comment.author_name}</strong> (${comment.date_posted})</p>`
+}
 
 window.addEventListener('DOMContentLoaded', async function (event) {
     try {
@@ -97,21 +103,21 @@ async function getComments(id) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+async function getCommentDetails(piece_id, comment_id) {
+    const commentDetailsDiv = document.getElementById(`commentDetails-${comment_id}`);
+    if (commentDetailsDiv.innerHTML !== "") {
+        commentDetailsDiv.innerHTML = "";
+        return;
+    }
+    try {
+        let responce = await fetch(`http://127.0.0.1:8090/pieces/${piece_id}/comments/${comment_id}`)
+        let comment = await responce.json()
+        console.log(comment)
+        displayCommentDetails(comment)
+    } catch (e) {
+        alert(e)
+    }
+}
 
 
 
@@ -122,18 +128,6 @@ async function getComments(id) {
 
 
 /*
-    <div class="comments_section">
-      <h3>Comments</h3>
-      <ul class="comments_list">
-        <li>
-          <p><strong>Emily</strong> (2026-02-16)</p>
-          <p>Great piece! Focus on smooth legato in measure 12.</p>
-        </li>
-        <li>
-          <p><strong>Michael</strong> (2026-02-14)</p>
-          <p>The high notes in the bridge are tricky, practice slowly.</p>
-        </li>
-      </ul>
 
       <form class="add_comment_form">
         <label>Your Name</label>
