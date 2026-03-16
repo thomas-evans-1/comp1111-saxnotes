@@ -171,3 +171,5 @@ async function postComment(event, piece_id){
       alert('Problem with POST request ' + response.statusText);
     }
   }
+
+// need to add the ability to search and filter
