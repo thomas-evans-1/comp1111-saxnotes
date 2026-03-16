@@ -1,12 +1,1 @@
-{
-  "pieces": [
-    {"id":1,"title":"Autumn Leaves","composer":"Joseph Kosma","difficulty":"Intermediate","sax_type":"Alto","style":"Jazz"},
-    {"id":2,"title":"Blue Bossa","composer":"Kenny Dorham","difficulty":"Beginner","sax_type":"Tenor","style":"Bossa Nova"},
-    {"id":3,"title":"Take Five","composer":"Paul Desmond","difficulty":"Advanced","sax_type":"Alto","style":"Cool Jazz"}
-  ],
-  "comments": [
-    {"id":1,"piece_id":1,"author_name":"Alice","content":"Loved the improvisation section!","date_posted":"2026-02-24"},
-    {"id":2,"piece_id":1,"author_name":"Bob","content":"Challenging but rewarding.","date_posted":"2026-02-23"},
-    {"id":3,"piece_id":2,"author_name":"Charlie","content":"Great for practicing Latin rhythm.","date_posted":"2026-02-22"}
-  ]
-}
+{"pieces":[{"id":1,"title":"Autumn Leaves","composer":"Joseph Kosma","difficulty":"Intermediate","sax_type":"Alto","style":"Jazz"},{"id":2,"title":"Blue Bossa","composer":"Kenny Dorham","difficulty":"Beginner","sax_type":"Tenor","style":"Bossa Nova"},{"id":3,"title":"Take Five","composer":"Paul Desmond","difficulty":"Advanced","sax_type":"Alto","style":"Cool Jazz"}],"comments":[{"id":1,"piece_id":1,"author_name":"Alice","content":"Loved the improvisation section!","date_posted":"2026-02-24"},{"id":2,"piece_id":1,"author_name":"Bob","content":"Challenging but rewarding.","date_posted":"2026-02-23"},{"id":3,"piece_id":2,"author_name":"Charlie","content":"Great for practicing Latin rhythm.","date_posted":"2026-02-22"},{"author_name":"19:20","date_posted":"2026-03-16","content":"hmmm","piece_id":1,"id":3}]}

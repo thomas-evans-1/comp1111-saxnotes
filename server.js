@@ -1,8 +1,9 @@
 const express = require('express') // Imports express module
 const app = express() // Create an express app
 
-
 const data = require('./data.json'); // Read data.json data
+const fs = require('fs');
+
 app.use(express.static('client')); // Middleware
 app.use(express.json());
 
@@ -22,13 +23,6 @@ app.get('/pieces/:id', function (req, resp) {
     resp.status(200).send(piece)
 })
 
-app.post("/", function (req, resp) {
-    console.log("request body", req.body);
-    let new_piece = req.body;
-    new_piece.id = data.pieces.length
-    data.pieces.push(new_piece);
-});
-
 // need to find a clever way to allocate ids or otherwise i need to get rid of them? can i just use the title of the piece as that will be unique
 // maybe the same with the comments? use someones name in comination wiht piece id? nah
 
@@ -38,7 +32,7 @@ app.get('/pieces/:piece_id/comments', function (req, resp) {
     const piece_id = parseInt(req.params.piece_id)
     const comments = data.comments.filter(c => c.piece_id === piece_id) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
     if (comments.length === 0) {
-        return resp.status(400).json({ error: "Piece not found" });
+        return resp.status(400).json({ error: "Comments not found" });
     }
     resp.status(200).send(comments)
 })
@@ -55,13 +49,20 @@ app.get('/pieces/:piece_id/comments/:id', function (req, resp) {
     resp.status(200).send(comments)
 })
 
-app.post("/pieces/:piece_id/comments", function (req, resp) {
+
+app.post("/pieces/:piece_id/comments/add", function (req, resp) {
     console.log("request body", req.body);
-    const piece_id = parseInt(req.params.piece_id)
-    const new_comment = req.body;
-    new_comment.id = [].length
-    new_comment.piece_id = piece_id;
-    data.comments.push(new_comment);
+    const comment = req.body;
+    comment.id = Date.now(); // unique ID based on number of milliseconds since 1 Jan 1970: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+
+    console.log(comment)
+
+    data.comments.push(comment)
+
+    if(!app.TESTING){
+      fs.writeFileSync('./data.json', JSON.stringify(data, null, 2)); // to not replace all data: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+    }
+    resp.json(comment);
 });
 
 app.listen(8090)

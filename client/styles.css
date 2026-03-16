@@ -7,7 +7,6 @@ body {
   background-size: 3.5rem;
 }
 
-
 .site_title {
   margin: 0;
   font-size: 2.5rem;
@@ -163,19 +162,19 @@ body {
   color: #ded724; 
 }
 
-.add_comment_form {
+.comment_form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 1.5rem;
 }
 
-.add_comment_form label {
+.comment_form label {
   font-weight: 600;
 }
 
-.add_comment_form input,
-.add_comment_form textarea {
+.comment_form input,
+.comment_form textarea {
   border-radius: 1rem;
   padding: 0.5rem 0.75rem;
   border: 0.1rem solid #333333;
@@ -186,18 +185,12 @@ body {
   resize: vertical;
 }
 
-.add_comment_form button {
+.comment_form button {
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  border: none;
-  background-color: #ded724;
+  background-color: #ceab0f;
   color: #3b2f2f;
   font-weight: 600;
   cursor: pointer;
 }
-
-.add_comment_form button:hover {
-  background-color: #c9b100;
-}
-
