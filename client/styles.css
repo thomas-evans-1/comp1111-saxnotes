@@ -195,3 +195,13 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+
+#alert {
+  bottom: 1rem;
+  text-align: center;
+  width: 20rem;
+  border-radius: 1rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}

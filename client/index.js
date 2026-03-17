@@ -20,6 +20,12 @@ function displayPieces(pieces) {
     }
 }
 
+function showError() {
+    document.getElementById("alert").textContent = "Error: Cannot connect to server :(";
+    document.getElementById("alert").classList.remove("d-none"); // class list 
+    setTimeout(() => { document.getElementById("alert").classList.add("d-none") }, 4000); // timeout function: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
+}
+
 function displayPieceDetails(piece) {
     const detailsDiv = document.getElementById(`details-${piece.id}`)
     displayDetails = `
@@ -82,21 +88,14 @@ function displayCommentForm(piece_id) {
     })
 }
 
-
 window.addEventListener('DOMContentLoaded', async function (event) {
     try {
         let response = await fetch('http://127.0.0.1:8090/pieces');
-
-        if (!response.ok) {
-            throw new Error("Server error");
-        }
-
         let pieces = await response.text();
         console.log(pieces)
         displayPieces(pieces)
     } catch (e) {
-        document.getElementById('piece_list').innerHTML =
-        "<p>⚠️ Server is unavailable. Please try again later.</p>";
+        showError()
     }
 });
 
@@ -111,10 +110,9 @@ search_input.addEventListener("input", async function (event) {
         let pieces = await response.text()
         displayPieces(pieces)
     } catch (e) {
-        alert(e)
+        showError()
     }
 })
-
 
 async function getPieceDetails(id) {
     const detailsDiv = document.getElementById(`details-${id}`)
@@ -128,7 +126,7 @@ async function getPieceDetails(id) {
         console.log(piece);
         displayPieceDetails(piece)
     } catch (e) {
-        alert(e);
+        showError()
     }
 }
 
@@ -144,7 +142,7 @@ async function getComments(id) {
         console.log(comments)
         displayComments(comments)
     } catch (e) {
-        alert(e);
+        showError()
     }
 }
 
@@ -160,7 +158,7 @@ async function getCommentDetails(piece_id, comment_id) {
         console.log(comment)
         displayCommentDetails(comment)
     } catch (e) {
-        alert(e)
+        showError()
     }
 }
 
@@ -177,25 +175,27 @@ async function postComment(event, piece_id) {
 
     console.log("Form data", formData);
 
-    const response = await fetch(`/pieces/${piece_id}/comments/add`,
-        {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-    if (response.ok) {
-        const responseBody = await response.text();
-        console.log("response from POST: ", responseBody)
-    }
-    else {
-        alert('Problem with POST request ' + response.statusText);
+    try {
+        const response = await fetch(`/pieces/${piece_id}/comments/add`,
+            {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+        if (response.ok) {
+            const responseBody = await response.text();
+            console.log("response from POST: ", responseBody)
+        }
+        else {
+            alert('Problem with POST request ' + response.statusText);
+        }
+    } catch(e) {
+        showError()
     }
 }
 
-// need to add the ability to search and filter
-
-// then need to do graceful server handeling
-
 // then need to do correct error messages uf there are no comments or pieces for example
+
+// clear form after submission
