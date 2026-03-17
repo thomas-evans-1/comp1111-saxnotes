@@ -5,6 +5,7 @@ body {
   background-image: url(https://cdn-icons-png.flaticon.com/512/197/197841.png);
   background-position: center;
   background-size: 3.5rem;
+  background-attachment: fixed; 
 }
 
 .site_title {
@@ -31,7 +32,7 @@ body {
   box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35); 
 }
 
-.search_input {
+#search_input {
   background-color: #4a4a4a;
   border: 0.1rem solid #333333;   
   width: 50rem;
@@ -41,12 +42,12 @@ body {
   font-size: 1rem;
 }
 
-.search_input:focus {
+#search_input:focus {
   background-color: #4a4a4a;
   color: #dcd6c9;
 }
 
-.search_input::placeholder {
+#search_input::placeholder {
   color: #dcd6c9;
 }
 

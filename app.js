@@ -13,6 +13,17 @@ app.get('/pieces', function (req, resp) {
     resp.send(data.pieces)
 })
 
+app.get('/pieces/search', function (req, resp) {
+    console.log("returns sax piece search")
+    let search_term = req.query.search_term
+    if (!search_term) {
+        resp.send(data.pieces)
+    }
+    let results = data.pieces.filter(item => item.title.toLowerCase().includes(search_term.toLowerCase()))
+    resp.send(results)
+})
+
+
 app.get('/pieces/:id', function (req, resp) {
     console.log("returns a specific sax piece")
     const id = parseInt(req.params.id)
@@ -54,10 +65,12 @@ app.post("/pieces/:piece_id/comments/add", function (req, resp) {
 
     data.comments.push(comment)
 
-    if(!app.TESTING){
-      fs.writeFileSync('./data.json', JSON.stringify(data, null, 2)); // to not replace all data: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+    if (!app.TESTING) {
+        fs.writeFileSync('./data.json', JSON.stringify(data, null, 2)); // to not replace all data: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
     }
     resp.json(comment);
 });
+
+
 
 module.exports = app

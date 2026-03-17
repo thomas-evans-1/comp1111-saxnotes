@@ -62,7 +62,7 @@ function displayCommentDetails(comment) {
 
 function displayCommentForm(piece_id) {
     const commentFormDiv = document.getElementById(`comment_form_div-${piece_id}`)
-     if (commentFormDiv.innerHTML !== "") {
+    if (commentFormDiv.innerHTML !== "") {
         commentFormDiv.innerHTML = "";
         return;
     }
@@ -77,7 +77,7 @@ function displayCommentForm(piece_id) {
         <button type="submit">Add Comment</button>
       </form>`
     const form = document.getElementById(`comment_form-${piece_id}`);
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         postComment(event, piece_id);
     })
 }
@@ -86,13 +86,35 @@ function displayCommentForm(piece_id) {
 window.addEventListener('DOMContentLoaded', async function (event) {
     try {
         let response = await fetch('http://127.0.0.1:8090/pieces');
+
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
+
         let pieces = await response.text();
         console.log(pieces)
         displayPieces(pieces)
     } catch (e) {
-        alert(e);
+        document.getElementById('piece_list').innerHTML =
+        "<p>⚠️ Server is unavailable. Please try again later.</p>";
     }
 });
+
+const search_input = document.getElementById("search_input")
+
+search_input.addEventListener("input", async function (event) {
+    console.log("searched")
+    const search_term = search_input.value
+    console.log(search_term)
+    try {
+        let response = await fetch(`http://127.0.0.1:8090/pieces/search?search_term=${search_term}`)
+        let pieces = await response.text()
+        displayPieces(pieces)
+    } catch (e) {
+        alert(e)
+    }
+})
+
 
 async function getPieceDetails(id) {
     const detailsDiv = document.getElementById(`details-${id}`)
@@ -142,34 +164,38 @@ async function getCommentDetails(piece_id, comment_id) {
     }
 }
 
-async function postComment(event, piece_id){
+async function postComment(event, piece_id) {
     event.preventDefault(); // stops the page from reloading
-    
+
     const form = event.target // 
 
-    const formData = new FormData(form); 
+    const formData = new FormData(form);
     console.log(formData);
     const data = Object.fromEntries(formData.entries())
 
     data.piece_id = piece_id
 
     console.log("Form data", formData);
-  
+
     const response = await fetch(`/pieces/${piece_id}/comments/add`,
-      {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
     if (response.ok) {
-      const responseBody = await response.text();
-      console.log("response from POST: ", responseBody)
+        const responseBody = await response.text();
+        console.log("response from POST: ", responseBody)
     }
     else {
-      alert('Problem with POST request ' + response.statusText);
+        alert('Problem with POST request ' + response.statusText);
     }
-  }
+}
 
 // need to add the ability to search and filter
+
+// then need to do graceful server handeling
+
+// then need to do correct error messages uf there are no comments or pieces for example
