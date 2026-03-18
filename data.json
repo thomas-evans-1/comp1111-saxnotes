@@ -23,6 +23,382 @@
       "difficulty": "Advanced",
       "sax_type": "Alto",
       "style": "Cool Jazz"
+    },
+    {
+      "id": 4,
+      "title": "Misty",
+      "composer": "Erroll Garner",
+      "difficulty": "Intermediate",
+      "sax_type": "Tenor",
+      "style": "Ballad"
+    },
+    {
+      "id": 5,
+      "title": "Giant Steps",
+      "composer": "John Coltrane",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 6,
+      "title": "Satin Doll",
+      "composer": "Duke Ellington",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Swing"
+    },
+    {
+      "id": 7,
+      "title": "Cantaloupe Island",
+      "composer": "Herbie Hancock",
+      "difficulty": "Beginner",
+      "sax_type": "Alto",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 8,
+      "title": "My Favorite Things",
+      "composer": "Richard Rodgers",
+      "difficulty": "Intermediate",
+      "sax_type": "Soprano",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 9,
+      "title": "All Blues",
+      "composer": "Miles Davis",
+      "difficulty": "Intermediate",
+      "sax_type": "Tenor",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 10,
+      "title": "Round Midnight",
+      "composer": "Thelonious Monk",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 11,
+      "title": "St. Thomas",
+      "composer": "Sonny Rollins",
+      "difficulty": "Beginner",
+      "sax_type": "Tenor",
+      "style": "Calypso Jazz"
+    },
+    {
+      "id": 12,
+      "title": "Watermelon Man",
+      "composer": "Herbie Hancock",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Funk Jazz"
+    },
+    {
+      "id": 13,
+      "title": "Oleo",
+      "composer": "Sonny Rollins",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Bebop"
+    },
+    {
+      "id": 14,
+      "title": "Body and Soul",
+      "composer": "Johnny Green",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 15,
+      "title": "Mr. P.C.",
+      "composer": "John Coltrane",
+      "difficulty": "Intermediate",
+      "sax_type": "Tenor",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 16,
+      "title": "Song for My Father",
+      "composer": "Horace Silver",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Latin Jazz"
+    },
+    {
+      "id": 17,
+      "title": "Maiden Voyage",
+      "composer": "Herbie Hancock",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 18,
+      "title": "In a Sentimental Mood",
+      "composer": "Duke Ellington",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 19,
+      "title": "Night Train",
+      "composer": "Jimmy Forrest",
+      "difficulty": "Beginner",
+      "sax_type": "Tenor",
+      "style": "Blues"
+    },
+    {
+      "id": 20,
+      "title": "Impressions",
+      "composer": "John Coltrane",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 21,
+      "title": "Desafinado",
+      "composer": "Antonio Carlos Jobim",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Bossa Nova"
+    },
+    {
+      "id": 22,
+      "title": "Autumn in New York",
+      "composer": "Vernon Duke",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 23,
+      "title": "Summertime",
+      "composer": "George Gershwin",
+      "difficulty": "Beginner",
+      "sax_type": "Tenor",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 24,
+      "title": "Bag's Groove",
+      "composer": "Milt Jackson",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Swing"
+    },
+    {
+      "id": 25,
+      "title": "Nardis",
+      "composer": "Miles Davis",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 26,
+      "title": "Cherokee",
+      "composer": "Ray Noble",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Bebop"
+    },
+    {
+      "id": 27,
+      "title": "Spain",
+      "composer": "Chick Corea",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Latin Jazz"
+    },
+    {
+      "id": 28,
+      "title": "Equinox",
+      "composer": "John Coltrane",
+      "difficulty": "Intermediate",
+      "sax_type": "Tenor",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 29,
+      "title": "Softly, As in a Morning Sunrise",
+      "composer": "Sigmund Romberg",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 30,
+      "title": "A Night in Tunisia",
+      "composer": "Dizzy Gillespie",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Bebop"
+    },
+    {
+      "id": 31,
+      "title": "Footprints",
+      "composer": "Wayne Shorter",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 32,
+      "title": "My Funny Valentine",
+      "composer": "Richard Rodgers",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 33,
+      "title": "Doxy",
+      "composer": "Sonny Rollins",
+      "difficulty": "Beginner",
+      "sax_type": "Tenor",
+      "style": "Bebop"
+    },
+    {
+      "id": 34,
+      "title": "Four",
+      "composer": "Miles Davis",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 35,
+      "title": "Stella by Starlight",
+      "composer": "Victor Young",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 36,
+      "title": "Blue Monk",
+      "composer": "Thelonious Monk",
+      "difficulty": "Beginner",
+      "sax_type": "Tenor",
+      "style": "Blues"
+    },
+    {
+      "id": 37,
+      "title": "Joy Spring",
+      "composer": "Clifford Brown",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 38,
+      "title": "Waltz for Debby",
+      "composer": "Bill Evans",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 39,
+      "title": "Nica's Dream",
+      "composer": "Horace Silver",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 40,
+      "title": "Round About Midnight",
+      "composer": "Thelonious Monk",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Ballad"
+    },
+    {
+      "id": 41,
+      "title": "Blue Train",
+      "composer": "John Coltrane",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 42,
+      "title": "Yardbird Suite",
+      "composer": "Charlie Parker",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Bebop"
+    },
+    {
+      "id": 43,
+      "title": "Solar",
+      "composer": "Miles Davis",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Jazz Standard"
+    },
+    {
+      "id": 44,
+      "title": "Ornithology",
+      "composer": "Charlie Parker",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Bebop"
+    },
+    {
+      "id": 45,
+      "title": "Pent-Up House",
+      "composer": "Sonny Rollins",
+      "difficulty": "Advanced",
+      "sax_type": "Tenor",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 46,
+      "title": "I Remember Clifford",
+      "composer": "Benny Golson",
+      "difficulty": "Intermediate",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 47,
+      "title": "Moanin'",
+      "composer": "Bobby Timmons",
+      "difficulty": "Intermediate",
+      "sax_type": "Tenor",
+      "style": "Hard Bop"
+    },
+    {
+      "id": 48,
+      "title": "Stolen Moments",
+      "composer": "Oliver Nelson",
+      "difficulty": "Advanced",
+      "sax_type": "Alto",
+      "style": "Modal Jazz"
+    },
+    {
+      "id": 49,
+      "title": "Darn That Dream",
+      "composer": "Jimmy Van Heusen",
+      "difficulty": "Beginner",
+      "sax_type": "Alto",
+      "style": "Ballad"
+    },
+    {
+      "id": 50,
+      "title": "Mr. Magic",
+      "composer": "Grover Washington Jr.",
+      "difficulty": "Beginner",
+      "sax_type": "Tenor",
+      "style": "Smooth Jazz"
     }
   ],
   "comments": [
@@ -48,18 +424,144 @@
       "date_posted": "2026-02-22"
     },
     {
-      "author_name": "19:20",
-      "date_posted": "2026-03-16",
-      "content": "hmmm",
-      "piece_id": 1,
-      "id": 3
+      "id": 4,
+      "piece_id": 3,
+      "author_name": "Dana",
+      "content": "The 5/4 time signature is tricky at first.",
+      "date_posted": "2026-02-21"
     },
     {
+      "id": 5,
+      "piece_id": 4,
+      "author_name": "Eli",
+      "content": "Beautiful melody, perfect for slow practice.",
+      "date_posted": "2026-02-20"
+    },
+    {
+      "id": 6,
+      "piece_id": 5,
+      "author_name": "Fiona",
+      "content": "This is a true test of technique!",
+      "date_posted": "2026-02-19"
+    },
+    {
+      "id": 7,
+      "piece_id": 6,
+      "author_name": "George",
+      "content": "Swing feel is so much fun to play.",
+      "date_posted": "2026-02-18"
+    },
+    {
+      "id": 8,
+      "piece_id": 7,
+      "author_name": "Hannah",
+      "content": "Simple yet groovy, love it.",
+      "date_posted": "2026-02-17"
+    },
+    {
+      "id": 9,
+      "piece_id": 8,
+      "author_name": "Ian",
+      "content": "Soprano sax really shines here.",
+      "date_posted": "2026-02-16"
+    },
+    {
+      "id": 10,
+      "piece_id": 9,
+      "author_name": "Judy",
+      "content": "Modal scales are tricky but rewarding.",
+      "date_posted": "2026-02-15"
+    },
+    {
+      "id": 11,
+      "piece_id": 10,
+      "author_name": "Kyle",
+      "content": "A classic ballad, very expressive.",
+      "date_posted": "2026-02-14"
+    },
+    {
+      "id": 12,
+      "piece_id": 11,
+      "author_name": "Liam",
+      "content": "Perfect for beginners to get the swing feel.",
+      "date_posted": "2026-02-13"
+    },
+    {
+      "id": 13,
+      "piece_id": 12,
+      "author_name": "Mia",
+      "content": "Funky and fun!",
+      "date_posted": "2026-02-12"
+    },
+    {
+      "id": 14,
+      "piece_id": 13,
+      "author_name": "Noah",
+      "content": "Requires precise timing.",
+      "date_posted": "2026-02-11"
+    },
+    {
+      "id": 15,
+      "piece_id": 14,
+      "author_name": "Olivia",
+      "content": "Very emotional, beautiful phrasing.",
+      "date_posted": "2026-02-10"
+    },
+    {
+      "id": 16,
+      "piece_id": 15,
+      "author_name": "Paul",
+      "content": "Challenging but worth the effort.",
+      "date_posted": "2026-02-09"
+    },
+    {
+      "id": 17,
+      "piece_id": 16,
+      "author_name": "Quinn",
+      "content": "Groovy Latin rhythms here.",
+      "date_posted": "2026-02-08"
+    },
+    {
+      "id": 18,
+      "piece_id": 17,
+      "author_name": "Rosa",
+      "content": "Modal improvisation at its finest.",
+      "date_posted": "2026-02-07"
+    },
+    {
+      "id": 19,
+      "piece_id": 18,
+      "author_name": "Sam",
+      "content": "Smooth and elegant lines.",
+      "date_posted": "2026-02-06"
+    },
+    {
+      "id": 20,
+      "piece_id": 19,
+      "author_name": "Tina",
+      "content": "Easy blues practice for beginners.",
+      "date_posted": "2026-02-05"
+    },
+    {
+      "id": 21,
+      "piece_id": 20,
+      "author_name": "Uma",
+      "content": "Great for advanced modal jazz practice.",
+      "date_posted": "2026-02-04"
+    },
+    {
+      "id": 1773847580899,
+      "piece_id": 12,
       "author_name": "Tom",
-      "date_posted": "2026-03-17",
-      "content": "Testing",
-      "piece_id": 2,
-      "id": 1773741306880
+      "content": "This is a banger!",
+      "date_posted": "2026-03-18"
+    },
+    {
+      "id": 1773849267596,
+      "piece_id": 1,
+      "author_name": "Hello",
+      "content": "Does the form still work",
+      "date_posted": "2026-03-18"
     }
   ]
 }

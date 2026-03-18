@@ -20,8 +20,8 @@ function displayPieces(pieces) {
     }
 }
 
-function showError() {
-    document.getElementById("alert").textContent = "Error: Cannot connect to server :(";
+function showError(message) {
+    document.getElementById("alert").textContent = "Error: " + message;
     document.getElementById("alert").classList.remove("d-none"); // class list 
     setTimeout(() => { document.getElementById("alert").classList.add("d-none") }, 4000); // timeout function: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
 }
@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', async function (event) {
         console.log(pieces)
         displayPieces(pieces)
     } catch (e) {
-        showError()
+        showError("Cannot connect to server...")
     }
 });
 
@@ -110,7 +110,7 @@ search_input.addEventListener("input", async function (event) {
         let pieces = await response.text()
         displayPieces(pieces)
     } catch (e) {
-        showError()
+        showError("Cannot connect to server...")
     }
 })
 
@@ -126,7 +126,7 @@ async function getPieceDetails(id) {
         console.log(piece);
         displayPieceDetails(piece)
     } catch (e) {
-        showError()
+        showError("Cannot connect to server...")
     }
 }
 
@@ -137,12 +137,16 @@ async function getComments(id) {
         return;
     }
     try {
-        let responce = await fetch(`http://127.0.0.1:8090/pieces/${id}/comments`)
-        let comments = await responce.json();
-        console.log(comments)
-        displayComments(comments)
+        let response = await fetch(`http://127.0.0.1:8090/pieces/${id}/comments`);
+        let comments = await response.json();
+        console.log("Comments:", comments);
+        if (comments.length === 0) {
+            commentsDiv.innerHTML = "<p>No comments yet</p>"
+        } else {
+        displayComments(comments);
+        }
     } catch (e) {
-        showError()
+        showError("Cannot connect to server...")
     }
 }
 
@@ -153,12 +157,12 @@ async function getCommentDetails(piece_id, comment_id) {
         return;
     }
     try {
-        let responce = await fetch(`http://127.0.0.1:8090/pieces/${piece_id}/comments/${comment_id}`)
-        let comment = await responce.json()
+        let response = await fetch(`http://127.0.0.1:8090/pieces/${piece_id}/comments/${comment_id}`)
+        let comment = await response.json()
         console.log(comment)
         displayCommentDetails(comment)
     } catch (e) {
-        showError()
+        showError("Cannot connect to server...")
     }
 }
 
@@ -168,15 +172,10 @@ async function postComment(event, piece_id) {
     const form = event.target // 
 
     const formData = new FormData(form);
-    console.log(formData);
     const data = Object.fromEntries(formData.entries())
 
-    data.piece_id = piece_id
-
-    console.log("Form data", formData);
-
     try {
-        const response = await fetch(`/pieces/${piece_id}/comments/add`,
+        const response = await fetch(`http://127.0.0.1:8090/pieces/${piece_id}/comments/add`,
             {
                 method: 'POST',
                 headers: {
@@ -184,18 +183,17 @@ async function postComment(event, piece_id) {
                 },
                 body: JSON.stringify(data)
             });
+        const responseBody = await response.json() // ICHANGES THIS FROM .TEXT to .JSON
         if (response.ok) {
-            const responseBody = await response.text();
-            console.log("response from POST: ", responseBody)
+            form.reset() // reset function: https://www.w3schools.com/jsref/met_form_reset.asp
         }
         else {
-            alert('Problem with POST request ' + response.statusText);
+            alert('Error: ' + responseBody.error);
         }
-    } catch(e) {
-        showError()
+    } catch (e) {
+        showError("Cannot connect to server...")
     }
 }
 
-// then need to do correct error messages uf there are no comments or pieces for example
 
-// clear form after submission
+
