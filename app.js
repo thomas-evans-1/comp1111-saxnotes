@@ -1,12 +1,14 @@
 const express = require('express') // Imports express module
+
 const app = express() // Create an express app
 
 const data = require('./data.json'); // Read data.json data
+
 const fs = require('fs');
 
-app.use(express.static('client')); // Middleware
-app.use(express.json());
+app.use(express.static('client'));
 
+app.use(express.json());
 
 app.get('/pieces', function (req, resp) {
     resp.status(200).send(data.pieces)
@@ -38,7 +40,7 @@ app.get('/pieces/:piece_id/comments', function (req, resp) {
     if (isNaN(piece_id)) {
         return resp.status(400).json({ error: "Invalid Piece ID" });
     }
-    const piece = data.pieces.find(p => p.piece_id === piece_id)
+    const piece = data.pieces.find(p => p.id === piece_id)
     if (!piece) {
         return resp.status(404).json({ error: "Piece ID not found" });
     }
@@ -51,7 +53,7 @@ app.get('/pieces/:piece_id/comments/:id', function (req, resp) {
     if (isNaN(piece_id)) {
         return resp.status(400).json({ error: "Invalid Piece ID" });
     }
-    const piece = data.pieces.find(p => p.piece_id === piece_id)
+    const piece = data.pieces.find(p => p.id === piece_id)
     if (!piece) {
         return resp.status(404).json({ error: "Piece ID not found" });
     }
@@ -71,7 +73,7 @@ app.post("/pieces/:piece_id/comments/add", function (req, resp) {
     if (isNaN(piece_id)) {
         return resp.status(400).json({ error: "Invalid piece ID" });
     }
-    const piece = data.pieces.find(p => p.piece_id === piece_id)
+    const piece = data.pieces.find(p => p.id === piece_id)
     if (!piece) {
         return resp.status(404).json({ error: "Piece ID not found" });
     }

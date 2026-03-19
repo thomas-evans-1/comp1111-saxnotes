@@ -167,9 +167,9 @@ async function getCommentDetails(piece_id, comment_id) {
 }
 
 async function postComment(event, piece_id) {
-    event.preventDefault(); // stops the page from reloading
+    event.preventDefault(); // Stops page from reloading
 
-    const form = event.target // 
+    const form = event.target
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries())
@@ -183,9 +183,9 @@ async function postComment(event, piece_id) {
                 },
                 body: JSON.stringify(data)
             });
-        const responseBody = await response.json() // ICHANGES THIS FROM .TEXT to .JSON
+        const responseBody = await response.json()
         if (response.ok) {
-            form.reset() // reset function: https://www.w3schools.com/jsref/met_form_reset.asp
+            form.reset() // Using a reset form function: https://www.w3schools.com/jsref/met_form_reset.asp
         }
         else {
             alert('Error: ' + responseBody.error);
