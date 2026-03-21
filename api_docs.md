@@ -13,8 +13,21 @@ The **SaxNotes API** provides access to a collection of saxophone musical pieces
 
 ---
 
-# Pieces
+## Contents
 
+1. [Pieces](#pieces)
+    1. [GET All Pieces](#get-all-pieces)
+    2. [GET Piece By Title Search](#get-piece-by-title-search)
+    3. [GET Piece By ID](#get-piece-by-id)
+2. [Comments](#comments)
+    1. [GET Comments By Piece ID](#get-comments-by-piece-id)
+    2. [GET Piece Comment By ID](#get-piece-comment-by-id)
+    3. [POST Comment](#post-comment)
+
+
+---
+
+## Pieces
 The **Pieces** entity represents musical pieces stored in the SaxNotes system.
 
 Each piece contains descriptive information such as:
@@ -32,10 +45,7 @@ SaxNotes allows users to:
 - Search for pieces by title  
 - Access related comments for a piece  
 
----
-
-## Piece Data Model
-
+#### Piece Data Model
 Each piece object contains the following fields:
 
 | Field | Type | Description |
@@ -47,9 +57,8 @@ Each piece object contains the following fields:
 | sax_type | string | Type of saxophone (e.g., Alto, Tenor, Baritone) |
 | style | string | Musical style or genre (e.g., Jazz, Classical) |
 
----
 
-## Example Piece Object
+#### Example Piece Object
 
 ```json
 {
@@ -64,56 +73,32 @@ Each piece object contains the following fields:
 
 ---
 
-## Supported Endpoints
+### GET All Pieces
 
-### Get All Pieces
-
-```
-GET {{baseURL}}/pieces
-```
-
-### Get Piece by ID
-
-```
-GET {{baseURL}}/pieces/:id
-```
-
-### Search Pieces
-
-```
-GET {{baseURL}}/pieces/search?search_term={}
-```
-
----
-
-# GET All Pieces
-
-## Description
+#### Description
 
 Returns the full list of available musical pieces.
 
 **Method:** `GET`  
 **Path:** `{{baseURL}}/pieces`
 
----
 
-## Responses
+#### Responses
 
 | Status | Description |
 |-------|-------------|
 | 200 OK | Successfully returned the list |
 
----
 
-## Example Request
+
+#### Example Request
 
 ```
 http://127.0.0.1/pieces
 ```
 
----
 
-## Example Response
+#### Example Response
 
 ```json
 [
@@ -146,26 +131,22 @@ http://127.0.0.1/pieces
 
 ---
 
-# GET Piece By Title Search
+### GET Piece By Title Search
 
-## Description
+#### Description
 
 Search for pieces using a free-text term.
 
 **Method:** `GET`  
 **Path:** `{{baseURL}}/pieces/search`
 
----
-
-## Query Parameters
+#### Query Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | search_term | string | Yes | Text to search for |
 
----
-
-## Responses
+#### Responses
 
 | Status | Description |
 |-------|-------------|
@@ -173,17 +154,13 @@ Search for pieces using a free-text term.
 | 200 OK (empty) | No matches found |
 | 200 OK (no term) | Returns all pieces |
 
----
-
-## Example Request
+#### Example Request
 
 ```
 http://127.0.0.1:8090/pieces/search?search_term=autumn%20leaves
 ```
 
----
-
-## Example Response
+#### Example Response
 
 ```json
 [
@@ -200,26 +177,22 @@ http://127.0.0.1:8090/pieces/search?search_term=autumn%20leaves
 
 ---
 
-# GET Piece By ID
+### GET Piece By ID
 
-## Description
+#### Description
 
 Retrieves a piece using its unique ID.
 
 **Method:** `GET`  
 **Path:** `{{baseURL}}/pieces/:id`
 
----
-
-## Path Parameters
+#### Path Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | id | integer | Yes | Piece ID |
 
----
-
-## Responses
+#### Responses
 
 | Status | Description |
 |-------|-------------|
@@ -227,17 +200,13 @@ Retrieves a piece using its unique ID.
 | 400 Bad Request | Invalid ID |
 | 404 Not Found | Piece not found |
 
----
-
-## Example Request
+#### Example Request
 
 ```
 http://127.0.0.1:8090/pieces/1
 ```
 
----
-
-## Example Response
+#### Example Response
 
 ```json
 {
@@ -252,7 +221,7 @@ http://127.0.0.1:8090/pieces/1
 
 ---
 
-# Comments
+## Comments
 
 The **Comments** entity represents user feedback linked to pieces.
 
@@ -270,9 +239,7 @@ Users can:
 
 Comments always belong to an existing piece.
 
----
-
-## Comment Data Model
+#### Comment Data Model
 
 | Field | Type | Description |
 |------|------|-------------|
@@ -282,9 +249,7 @@ Comments always belong to an existing piece.
 | content | string | Comment text |
 | date_posted | string (YYYY-MM-DD) | Creation date |
 
----
-
-## Example Comment Object
+#### Example Comment Object
 
 ```json
 {
@@ -298,48 +263,22 @@ Comments always belong to an existing piece.
 
 ---
 
-## Supported Comment Endpoints
+### GET Comments By Piece ID
 
-### Get Comments for Piece
-
-```
-GET {{baseURL}}/pieces/:piece_id/comments
-```
-
-### Get Comment by ID
-
-```
-GET {{baseURL}}/pieces/:piece_id/comments/:id
-```
-
-### Add Comment
-
-```
-POST {{baseURL}}/pieces/:piece_id/comments/add
-```
-
----
-
-# GET Comments By Piece ID
-
-## Description
+#### Description
 
 Returns all comments for a piece.
 
 **Method:** `GET`  
 **Path:** `{{baseURL}}/pieces/:piece_id/comments`
 
----
-
-## Path Parameters
+#### Path Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | piece_id | integer | Yes | Piece ID |
 
----
-
-## Responses
+#### Responses
 
 | Status | Description |
 |-------|-------------|
@@ -348,9 +287,7 @@ Returns all comments for a piece.
 | 400 Bad Request | Invalid ID |
 | 404 Not Found | Piece not found |
 
----
-
-## Example Response
+#### Example Response
 
 ```json
 [
@@ -373,27 +310,23 @@ Returns all comments for a piece.
 
 ---
 
-# GET Piece Comment By ID
+### GET Piece Comment By ID
 
-## Description
+#### Description
 
 Retrieves a single comment.
 
 **Method:** `GET`  
 **Endpoint:** `{{baseURL}}/pieces/:piece_id/comments/:id`
 
----
-
-## Path Parameters
+#### Path Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | piece_id | integer | Yes | Piece ID |
 | id | integer | Yes | Comment ID |
 
----
-
-## Responses
+#### Responses
 
 | Status | Description |
 |-------|-------------|
@@ -401,9 +334,7 @@ Retrieves a single comment.
 | 400 Bad Request | Invalid ID |
 | 404 Not Found | Comment not found |
 
----
-
-## Example Response
+#### Example Response
 
 ```json
 {
@@ -417,26 +348,23 @@ Retrieves a single comment.
 
 ---
 
-# POST Comment
+### POST Comment
 
-## Description
+#### Description
 
 Creates a new comment.
 
 **Method:** `POST`  
 **Endpoint:** `{{baseURL}}/pieces/:piece_id/comments/add`
 
----
 
-## Path Parameters
+#### Path Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | piece_id | integer | Yes | Piece ID |
 
----
-
-## Request Body
+#### Request Body
 
 **Content-Type:** `application/json`
 
@@ -446,9 +374,7 @@ Creates a new comment.
 | author_name | string | Yes | Author name |
 | date_posted | string (YYYY-MM-DD) | Yes | Date posted |
 
----
-
-## Example Body
+#### Example Body
 
 ```json
 {
@@ -458,9 +384,7 @@ Creates a new comment.
 }
 ```
 
----
-
-## Example Success Response
+#### Example Success Response
 
 ```json
 {
