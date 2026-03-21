@@ -19,7 +19,7 @@ app.get('/pieces/search', function (req, resp) {
     if (!search_term) {
         return resp.status(200).send(data.pieces)
     }
-    let results = data.pieces.filter(item => item.title.toLowerCase().includes(search_term.toLowerCase())) // using search logic from stevens code
+    let results = data.pieces.filter(item => item.title.toLowerCase().includes(search_term.toLowerCase())) // Using search logic from line 57: https://github.com/stevenaeola/proggold_2526/blob/main/cars/app.js
     resp.status(200).send(results)
 })
 
@@ -44,7 +44,7 @@ app.get('/pieces/:piece_id/comments', function (req, resp) {
     if (!piece) {
         return resp.status(404).json({ error: "Piece ID not found" });
     }
-    const comments = data.comments.filter(c => c.piece_id === piece_id) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    const comments = data.comments.filter(c => c.piece_id === piece_id) // Filter comments whose 'piece_id' mathces the param: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
     resp.status(200).json(comments)
 })
 
@@ -88,7 +88,7 @@ app.post("/pieces/:piece_id/comments/add", function (req, resp) {
         return resp.status(400).json({ error: "Date is required" });
     }   
     const comment = {
-        id: Date.now(),
+        id: Date.now(),  
         piece_id: piece_id,
         author_name: author_name,
         content: content,

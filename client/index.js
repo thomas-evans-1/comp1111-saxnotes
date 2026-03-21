@@ -3,18 +3,22 @@ function displayPieces(pieces) {
     displayList.innerHTML = ""
     for (let piece of JSON.parse(pieces)) {
         let pieceDisplayHTML = `
-            <div class="piece_info">
-                <div class="piece_header">
-                    <h3>${piece.title}</h3>
-                    <div class="button_group">
-                        <button onclick="getPieceDetails(${piece.id})">Piece Details</button> 
-                        <button onclick="getComments(${piece.id})">Comments</button>
-                        <button onclick="displayCommentForm(${piece.id})">Add Comment</button>
+            <div class="piece_info card mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="piece_header col-12 col-md-6">
+                            <h3>${piece.title}</h3>
+                        </div>
+                    <div class="piece_header col-12 col-md-6 d-flex flex-wrap gap-2">
+                        <button class="btn" onclick="getPieceDetails(${piece.id})">Piece Details</button>
+                        <button class="btn" onclick="getComments(${piece.id})">Comments</button>
+                        <button class="btn" onclick="displayCommentForm(${piece.id})">Add Comment</button>
                     </div>
-                 </div>
-                 <div class="piece_details" id="details-${piece.id}"></div>
-                 <div id="comments-${piece.id}"></div>
-                 <div id="comment_form_div-${piece.id}"></div>
+                </div>
+                <div class="piece_details mt-2" id="details-${piece.id}"></div>
+                    <div id="comments-${piece.id}"></div>
+                    <div id="comment_form_div-${piece.id}"></div>
+                </div>
             </div>`
         displayList.innerHTML += pieceDisplayHTML
     }
@@ -143,7 +147,7 @@ async function getComments(id) {
         if (comments.length === 0) {
             commentsDiv.innerHTML = "<p>No comments yet</p>"
         } else {
-        displayComments(comments);
+            displayComments(comments);
         }
     } catch (e) {
         showError("Cannot connect to server...")
@@ -194,6 +198,3 @@ async function postComment(event, piece_id) {
         showError("Cannot connect to server...")
     }
 }
-
-
-
