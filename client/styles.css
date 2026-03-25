@@ -1,13 +1,24 @@
-/* Show it's not fixed to the top */
+/* CSS from Bootstrap Fixed Navbar Example: https://getbootstrap.com/docs/4.0/examples/navbar-fixed/*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
-  min-height: 75rem;
   background-color: #78786f;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   background-image: url(https://cdn-icons-png.flaticon.com/512/197/197841.png);
   background-position: center;
   background-size: 3.5rem;
-  background-attachment: fixed; 
+  background-attachment: fixed
 }
 
 .bd-placeholder-img {
@@ -93,15 +104,16 @@ body {
   display: block !important;
 }
 
-/* end of boostrap css*/
+/* End of Bootstrap CSS*/
 
 .navbar {
-  background: linear-gradient(135deg, #ded724, #b8860b);
+  background: linear-gradient(135deg, #ded724, #b8860b) !important;
   border: 0.2rem solid #1a1919;
+  width: 100%;
 }
 
 .navbar-brand {
-  font-size: 2.5rem;
+  font-size: 5vb;
   font-weight: 800;
   letter-spacing: 0.15rem;
   color: #3b2f2f; 
@@ -126,9 +138,9 @@ body {
 }
 
 .piece_info {
-  margin: 2rem;
+  width: 90%;           
+  margin: 2rem auto;  
   background-color: #4a4a4a;
-  /*padding: 0.75rem 0.5rem;*/
   border-radius: 1.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25);
   color: #dcd6c9;
@@ -141,9 +153,10 @@ body {
 }
 
 .piece_header h3 {
-  font-size: 2rem;
+  font-size: 4vb;
   font-weight: 700;
   color: #ded724;
+  
 }
 
 .piece_header button {
@@ -190,7 +203,10 @@ body {
   padding: 0.4rem 1rem;
   border-radius: 1.5rem;
   color: #ded724;
-  position:static
+  position:static;
+  flex-direction: column; 
+  align-items: flex-start;  
+
 }
 
 .comments_list li {
@@ -252,6 +268,20 @@ body {
   cursor: pointer;
 }
 
+.btn {
+  margin-top: 0.75rem;
+  background-color: #ceab0f;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  color: #040403;
+}
+
+.btn:hover {
+  background-color: #ceab0f;
+  color: #040403;
+  border-radius: 1.5rem;
+}
+
 #alert {
   bottom: 1rem;
   text-align: center;
@@ -260,4 +290,11 @@ body {
   left: 50%;
   transform: translate(-50%, -50%); 
   position: fixed;
+}
+
+@media (max-width: 600px) {
+  .piece_header{
+    flex-direction: column; 
+    align-items: flex-start;  
+  }
 }

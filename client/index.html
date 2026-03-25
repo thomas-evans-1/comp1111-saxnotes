@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- fix meta tags-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Astro v5.13.2">
@@ -17,9 +17,8 @@
 </head>
 
 <body>
-
-  <!--navbar reference from boostrap-->
-  <nav class="navbar navbar-expand-md mb-4">
+  <!--Boostrap Fixed Navbar: https://getbootstrap.com/docs/4.0/examples/navbar-fixed/-->
+  <nav class="navbar navbar-expand-md navbar-dark mb-4">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SaxNotes</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -28,14 +27,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <form class="d-flex ms-auto w-75" role="search">
-          <input class="form-control flex-grow-1" type="search" placeholder="Search" aria-label="Search" id="search_input" />
+          <input class="form-control flex-grow-1" type="search" placeholder="Search" aria-label="Search" id="search_input">
         </form>
       </div>
     </div>
   </nav>
 
-  <div class="container" id="piece_list">
-  </div>
+  <div class="container-fluid" id="piece_list"></div>
 
  <div id="alert" class="alert alert-danger d-none" role="alert"></div>
 

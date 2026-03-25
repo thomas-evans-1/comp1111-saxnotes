@@ -30,7 +30,7 @@ The **SaxNotes API** provides access to a collection of saxophone musical pieces
 ## Pieces
 The **Pieces** entity represents musical pieces stored in the SaxNotes system.
 
-Each piece contains descriptive information such as:
+Each piece contains descriptive information:
 
 - Title  
 - Composer  

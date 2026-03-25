@@ -6,16 +6,12 @@ function displayPieces(pieces) {
             <div class="piece_info card mb-3">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="piece_header col-12 col-md-6">
+                        <div class="piece_header ">
                             <h3>${piece.title}</h3>
+                            <button class="btn" onclick="getPieceDetails(${piece.id})">Piece Details</button>
                         </div>
-                    <div class="piece_header col-12 col-md-6 d-flex flex-wrap gap-2">
-                        <button class="btn" onclick="getPieceDetails(${piece.id})">Piece Details</button>
-                        <button class="btn" onclick="getComments(${piece.id})">Comments</button>
-                        <button class="btn" onclick="displayCommentForm(${piece.id})">Add Comment</button>
                     </div>
-                </div>
-                <div class="piece_details mt-2" id="details-${piece.id}"></div>
+                    <div class="piece_details mt-2" id="details-${piece.id}"></div>
                     <div id="comments-${piece.id}"></div>
                     <div id="comment_form_div-${piece.id}"></div>
                 </div>
@@ -36,7 +32,8 @@ function displayPieceDetails(piece) {
       <p>Composer: ${piece.composer}</p>
       <p>Difficulty: ${piece.difficulty}</p>
       <p>Type: ${piece.sax_type}</p>
-      <p>Style: ${piece.style}</p>`
+      <p>Style: ${piece.style}</p>
+      <button class="btn" onclick="getComments(${piece.id})">Comments</button>`
     detailsDiv.innerHTML = displayDetails
 }
 
@@ -60,6 +57,7 @@ function displayComments(comments) {
     }
     commentsList += `
             </ul>
+            <button class="btn" onclick="displayCommentForm(${comments[0].piece_id})">Add Comment</button>
         </div>`
     commentsDiv.innerHTML = commentsList
 }
