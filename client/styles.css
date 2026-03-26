@@ -15,7 +15,7 @@ body {
   background-color: #78786f;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
-  background-image: url(https://cdn-icons-png.flaticon.com/512/197/197841.png);
+  background-image: url("sax_icon.png");
   background-position: center;
   background-size: 3.5rem;
   background-attachment: fixed
@@ -160,7 +160,6 @@ body {
 }
 
 .piece_header button {
-  margin: 0.5rem;
   background-color: #ceab0f;
   padding: 0.5rem 1rem;
   border-radius: 1.5rem;
@@ -205,7 +204,7 @@ body {
   color: #ded724;
   position:static;
   flex-direction: column; 
-  align-items: flex-start;  
+  align-items: flex-start 
 
 }
 
@@ -215,6 +214,7 @@ body {
   border-radius: 1rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.15);
   display: flex;
+    flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
